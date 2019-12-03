@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>epiviz Charts Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="bower_components/epiviz-charts/src/renderingQueues/renderingQueue.js"></script>
+
+    <!-- <link rel="import" href="../epiviz-environment.html"> -->
+    <link rel="import" href="bower_components/epiviz-data-source/epiviz-data-source.html">
+    <link rel="import" href="bower_components/epiviz-charts/epiviz-charts.html">
+</head>
+
+<body>
+
+    <!-- Tells the browser where the epiviz file server is running -->
+    <epiviz-data-source provider-type="epiviz.data.WebServerDataProvider" provider-id="fileapi"
+        provider-url="http://localhost:8000">
+    </epiviz-data-source>
+
+    <!-- initiliaze navigation to a gene location or genomic region -->
+    <epiviz-navigation
+        chr="chr18"
+        start=32254012
+        end=42505003
+        measurements='
+        {
+            "hg19": {
+                "id": "hg19",
+                "name": "hg19",
+                "type": "range",
+                "datasourceId": "hg19",
+                "datasourceGroup": "hg19",
+                "dataprovider": "fileapi",
+                "formula": null,
+                "defaultChartType": "track",
+                "annotation": {"group": "genome"},
+                "minValue": 5,
+                "maxValue": 0,
+                "metadata": ["GENEID", "exons_start", "exons_end", "gene"]
+            },
+            "E070-H3K9me3" : {
+                "id": "E070-H3K9me3",
+                "name": "Brain Germinal Matrix - H3k9me3 signal",
+                "type": "feature",
+                "datasourceId": "http://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E070-H3K9me3.pval.signal.bigwig",
+                "datasourceGroup": "E070-H3K9me3",
+                "dataprovider": "fileapi",
+                "formula": null,
+                "defaultChartType": "track",
+                "annotation": {"group": "H3K9me3", "tissue": "Brain Germinal Matrix"},
+                "minValue": 5,
+                "maxValue": 0,
+                "metadata": []
+            },
+            "E071-H3K9me3": {
+                "id": "E071-H3K9me3",
+                "name": "Brain Hippocampus Middle - H3k9me3 signal",
+                "type": "feature",
+                "datasourceId": "http://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E071-H3K9me3.pval.signal.bigwig",
+                "datasourceGroup": "E071-H3K9me3",
+                "dataprovider": "fileapi",
+                "formula": null,
+                "defaultChartType": "track",
+                "annotation": {"group": "H3K9me3","tissue": "Brain Hippocampus Middle"},
+                "minValue": 5,
+                "maxValue": 0,
+                "metadata": []
+
+            },
+            "E070-H3K27me3": {
+                "id": "E070-H3K27me3",
+                "name": "Brain Germinal Matrix - H3K27me3 signal",
+                "type": "feature",
+                "datasourceId": "http://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E070-H3K27me3.pval.signal.bigwig",
+                "datasourceGroup": "E070-H3K27me3",
+                "dataprovider": "fileapi",
+                "formula": null,
+                "defaultChartType": "track",
+                "annotation": {"group": "H3K27me3","tissue": "Brain Germinal Matrix"},
+                "minValue": 5,
+                "maxValue": 0,
+                "metadata": []
+
+            },
+            "E071-H3K27me3": {
+                "id": "E071-H3K27me3",
+                "name": "Brain Hippocampus Middle - H3K27me3 signal",
+                "type": "feature",
+                "datasourceId": "http://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E071-H3K27me3.pval.signal.bigwig",
+                "datasourceGroup": "E071-H3K27me3",
+                "dataprovider": "fileapi",
+                "formula": null,
+                "defaultChartType": "track",
+                "annotation": {"group": "H3K27me3", "tissue": "Brain Hippocampus Middle"},
+                "minValue": 5,
+                "maxValue": 0,
+                "metadata": []
+
+            },
+            "diff_brain_H3K9me3_signal": {
+                "id": "diff_brain_H3K9me3_signal",
+                "name": "Diff Brain H3K9me3 Signal",
+                "type": "feature",
+                "datasourceId": "computed",
+                "datasourceGroup": "diff_brain_H3K9me3_signal",
+                "dataprovider": "fileapi",
+                "formula": null,
+                "defaultChartType": "track",
+                "annotation": {"group": "computed_atac"},
+                "minValue": null,
+                "maxValue": null,
+                "metadata": []
+            },
+            "diff_brain_H3K27me3_signal": {
+                "id": "diff_brain_H3K27me3_signal",
+                "name": "Diff Brain H3K27me3 Signal",
+                "type": "feature",
+                "datasourceId": "computed",
+                "datasourceGroup": "diff_brain_H3K27me3_signal",
+                "dataprovider": "fileapi",
+                "formula": null,
+                "defaultChartType": "track",
+                "annotation": {"group": "computed_atac"},
+                "minValue": null,
+                "maxValue": null,
+                "metadata": []
+            }
+        }'
+    >
+    <!-- add a genes track for hg19 -->
+        <epiviz-genes-track slot="charts" dim-s='["hg19"]'></epiviz-genes-track>
+
+        <!-- add signal tracks for brain tissues -->
+        <epiviz-line-track slot="charts" dim-s='["E070-H3K9me3", "E071-H3K9me3"]'></epiviz-line-track>
+        <epiviz-line-track slot="charts" dim-s='["E070-H3K27me3", "E071-H3K27me3"]'></epiviz-line-track>
+
+        <!-- add signal tracks computed diff in histone modification across tissues  -->
+        <epiviz-line-track slot="charts" dim-s='["diff_brain_H3K9me3_signal", "diff_brain_H3K27me3_signal"]'></epiviz-line-track>
+    </epiviz-navigation>
+
+    <noscript>
+        Please enable JavaScript to view this website.
+    </noscript>
+</body>
+
+</html>

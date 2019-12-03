@@ -1,0 +1,50 @@
+[
+    {
+        "url": "http://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E070-H3K9me3.pval.signal.bigwig",
+        "file_type": "bigwig",
+        "datatype": "feature",
+        "name": "Brain Germinal Matrix - H3k9me3 signal",
+        "id": "E070-H3K9me3",
+        "annotation": {
+          "group": "H3K9me3",
+          "tissue": "Brain Germinal Matrix"
+        },
+        "metadata": []
+      },
+      {
+        "url": "http://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E071-H3K9me3.pval.signal.bigwig",
+        "file_type": "bigwig",
+        "datatype": "feature",
+        "name": "Brain Hippocampus Middle - H3k9me3 signal",
+        "id": "E071-H3K9me3",
+        "annotation": {
+          "group": "H3K9me3",
+          "tissue": "Brain Hippocampus Middle"
+        },
+        "metadata": []
+      },
+      {
+        "url": "http://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E070-H3K27me3.pval.signal.bigwig",
+        "file_type": "bigwig",
+        "datatype": "feature",
+        "name": "Brain Germinal Matrix - H3K27me3 signal",
+        "id": "E070-H3K27me3",
+        "annotation": {
+          "group": "H3K27me3",
+          "tissue": "Brain Germinal Matrix"
+        },
+        "metadata": []
+      },
+      {
+        "url": "http://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E071-H3K27me3.pval.signal.bigwig",
+        "file_type": "bigwig",
+        "datatype": "feature",
+        "name": "Brain Hippocampus Middle - H3K27me3 signal",
+        "id": "E071-H3K27me3",
+        "annotation": {
+          "group": "H3K27me3",
+          "tissue": "Brain Hippocampus Middle"
+        },
+        "metadata": []
+      }
+]
