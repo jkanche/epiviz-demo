@@ -14,7 +14,7 @@
     
     - Use bower to install dependencies
     > $ bower init
-    \$ bower install epiviz/epiviz-chart
+    > $ bower install epiviz/epiviz-chart
 
     - Create an index.html file to add Epiviz Components that query data from the Epiviz file server, more information on components is available at [GitHub](https://github.com/epiviz/epiviz-chart)
 
